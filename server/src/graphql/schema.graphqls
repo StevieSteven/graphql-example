@@ -1,0 +1,92 @@
+type Category {
+    uuid: ID!,
+    name: String!,
+    numberOfProducts: Int!,
+    products: [Product!]
+}
+
+
+type Product {
+    uuid: String!
+    name: String!
+    price: Float!
+    description: String
+    ratings: [Rating!]
+    category: Category!
+}
+
+type Rating {
+    uuid:String!
+    stars: Int!
+    comment: String!
+    product: Product!
+    customer: Customer!
+}
+
+type Customer {
+    uuid: String!
+    firstName: String!
+    surname: String!
+    shoppingcart: Shoppingcart!
+    orders: [Order!]
+    ratings: [Rating!]
+}
+
+
+interface ProductQuantity {
+    product: Product!
+    quantity: Int!
+}
+
+type Shoppingcart {
+    uuid: String!
+    items: [ShoppingcartElement!]
+}
+
+type ShoppingcartElement implements ProductQuantity {
+    uuid: String!
+    product: Product!
+    quantity: Int!
+}
+
+enum OrderStatus {
+    ORDER_PLACED
+    PROCESSING
+    SHIPPED
+    COMPLETED
+}
+
+
+type Order{
+    uuid: String!
+    date: String!
+    items: [OrderItem!]!
+    status: OrderStatus!
+}
+
+type OrderItem implements ProductQuantity{
+    uuid: String
+    product: Product!
+    quantity: Int!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    category(uuid: ID!): Category
+    categories(startsWith: String): [Category!]
+    products(startsWith: String): [Product!]
+    me: Customer!
+    shoppingcart: Shoppingcart!
+    orders: [Order]!
+    product(uuid:ID!): Product
+}
+
+type Mutation {
+    addProductToCart(uuid: ID!, quantity: Int!): Shoppingcart!
+}
+
+

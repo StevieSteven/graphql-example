@@ -1,0 +1,44 @@
+
+body {
+  /*background-color: #f8f8f8;*/
+  color: #00136e;
+}
+
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.mainContent{
+  color: #00136e;
+  margin-top: 20px;
+}
+
+.error {
+  color: #f5222d;
+}
+
+.warning {
+  color: #faad14;
+}
+
+.success {
+  color: #52c41a;
+}
+
+.info {
+  color: #1890ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #00136e;
+}
+
+.right {
+text-align: right;
+float: right;
+}
