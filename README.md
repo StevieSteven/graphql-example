@@ -23,4 +23,4 @@ After that the server will start on port 8080. The dummy data will be created au
 That will start the React client on port 3000.
 
 
-**Notice:** This app is not intended as a real-world blog application! It is neither feature-complete nor optimized for usability and most importantly: It highly possible that it contains bugs and security issues. The only purpose of this repository is to act as an example and tech demo.
+**Notice:** This app is not intended as a real-world webshop application! It is neither feature-complete nor optimized for usability and most importantly: It highly possible that it contains bugs and security issues. The only purpose of this repository is to act as an example and tech demo.
