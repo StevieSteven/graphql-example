@@ -33,7 +33,7 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:9090",
   "devDependencies": {
     "less": "^3.0.1",
     "less-loader": "^4.1.0",

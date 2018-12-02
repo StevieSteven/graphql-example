@@ -5,7 +5,6 @@ type Category {
     products: [Product!]
 }
 
-
 type Product {
     uuid: String!
     name: String!
@@ -32,18 +31,12 @@ type Customer {
     ratings: [Rating!]
 }
 
-
-interface ProductQuantity {
-    product: Product!
-    quantity: Int!
-}
-
 type Shoppingcart {
     uuid: String!
     items: [ShoppingcartElement!]
 }
 
-type ShoppingcartElement implements ProductQuantity {
+type ShoppingcartElement {
     uuid: String!
     product: Product!
     quantity: Int!
@@ -64,7 +57,7 @@ type Order{
     status: OrderStatus!
 }
 
-type OrderItem implements ProductQuantity{
+type OrderItem {
     uuid: String
     product: Product!
     quantity: Int!

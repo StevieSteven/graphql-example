@@ -1,27 +1,11 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import {graphqlExpress, graphiqlExpress} from 'apollo-server-express';
+import {ApolloServer} from 'apollo-server';
+import typeDefs from './graphql/schema';
+import resolvers from "./graphql/resolvers";
 
-import schema from './graphql/schema';
-
-import config from './../app-config.json'
-
-const app = express();
-
-app.use('/graphql', bodyParser.json(), graphqlExpress({
-    schema: schema,
-    formatError: error => ({
-        message: error.message,
-        state: error.originalError && error.originalError.state,
-    })
-}));
-if (config.enableGraphiQL)
-    app.get('/graphiql', graphiqlExpress({endpointURL: '/graphql'})); // if you want GraphiQL enabled
-
-
-
-// console.log("Database: ", database);
-
+const app = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 export default app;
 
